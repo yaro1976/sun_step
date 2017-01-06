@@ -19,7 +19,7 @@
 	var soleil = new Image();
 	var plaine = new Image();
 	var ciel = new Image();
-	var angle = 0;
+	var angle = -10;
 
 	// Initialize the scene
 	var init = function () {
@@ -40,44 +40,46 @@
 			// code de dessin
 
 			// Erase the context
-			ctx.clearRect(0, 0, 800, 800);
+			ctx.clearRect(0, 0, 840, 630);
 
 			// Draw the sky
-			ctx.drawImage(ciel, 0, 0, 600, 150);
+			ctx.drawImage(ciel, 0, 0, 840, 400);
 			// ctx.save();
 
 			// Draw the plane
 			// ctx.drawImage(plaine, 0, 120, 1284, 400, 0, 100, 1284, 50);
-			ctx.drawImage(plaine, 1280, 854, -840, -300, 0, 90, 1284, 80);
+			ctx.drawImage(plaine, 0, 0 ,1280, 854, 0, 400, 840, 230);
+			// ctx.drawImage(plaine, 1280, 854, -840, -300, 0, 400, 840, 230);
 			ctx.save();
 
 			// Sun
 			
-			ctx.translate(-10 + 90 * (Math.PI / 180 * angle), 40 - (40 * Math.sin(Math.PI / 180 * angle)));
+			// ctx.translate(-10 + 90 * (Math.PI / 180 * angle), 40 - (40 * Math.sin(Math.PI / 180 * angle)));
+			ctx.translate(400 * (Math.PI / 180 * angle) - 300,  300 - (200 * Math.sin(Math.PI / 180 * angle)));
 			
-			ctx.drawImage(soleil, 0, 0, 30, 30);
+			ctx.drawImage(soleil, 0, 0, 100, 100);
 			
 			ctx.restore();
-			if (angle <= 360) {
+			if (angle <= 190) {
 				angle += 1;
 			}
 			else {
-				angle = 0;
+				angle = -10;
 			}
 
 
 			// Change contrast of image
 			if (angle <= 25) {
 				ctx.fillStyle = "rgba(4, 13, 38  , .8)";
-				ctx.fillRect(0, 0, 650, 180);
+				ctx.fillRect(0, 0, 840, 630);
 			}
 			if ( angle > 25 && angle < 35) {
 				ctx.fillStyle = "rgba(4, 13, 38 , .6)";
-				ctx.fillRect(0, 0, 650, 180);
+				ctx.fillRect(0, 0, 840, 630);
 			}
 			if (angle >=35 && angle <=45 ) {
 				ctx.fillStyle = "rgba(4, 13, 38 , .4)";
-				ctx.fillRect(0, 0, 650, 180);
+				ctx.fillRect(0, 0, 840, 630);
 			}
 			
 			if (angle > 45 && angle < 135) {
@@ -86,15 +88,15 @@
 			
 			if (angle >= 135 && angle <=145 ){
 				ctx.fillStyle = "rgba(4, 13, 38 , .4)";
-				ctx.fillRect(0, 0, 650, 180);
+				ctx.fillRect(0, 0, 840, 630);
 			}
 			if (angle > 145 && angle < 155) {
 				ctx.fillStyle = "rgba(4, 13, 38 , .6)";
-				ctx.fillRect(0, 0, 650, 180);
+				ctx.fillRect(0, 0, 840, 630);
 			}
 			if (angle >= 155) {
 				ctx.fillStyle = "rgba(4, 13, 38 , .8)";
-				ctx.fillRect(0, 0, 650, 180);
+				ctx.fillRect(0, 0, 840, 630);
 			}
 		}
 		else {
