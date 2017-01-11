@@ -19,7 +19,7 @@
 	var soleil = new Image();
 	var plaine = new Image();
 	var ciel = new Image();
-	var angle = -10;
+	var angle = 0;
 
 	// Initialize the scene
 	var init = function () {
@@ -30,7 +30,8 @@
 		// Use to draw the animation
 		// Call every 60s.
 		// window.requestAnimationFrame(draw);
-		window.setInterval(draw, 60);
+		// window.setInterval(draw, 60);
+		draw();
 	};
 
 	var draw = function () {
@@ -60,11 +61,11 @@
 			ctx.drawImage(soleil, 0, 0, 100, 100);
 			
 			ctx.restore();
-			if (angle <= 190) {
+			if (angle <= 380) {
 				angle += 1;
 			}
 			else {
-				angle = -10;
+				angle = 0;
 			}
 
 
@@ -106,7 +107,7 @@
 
 		// Use to draw the animation
 		// Call every 60s.
-		// window.requestAnimationFrame(draw);
+		window.requestAnimationFrame(draw);
 
 	};
 
